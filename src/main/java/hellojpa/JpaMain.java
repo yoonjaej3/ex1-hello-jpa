@@ -17,9 +17,12 @@ public class JpaMain {
         tx.begin();
 
         try{
-//            Member member =new Member();
-//            member.setId(2L);
-//            member.setName("HelloB");
+            Member member =new Member();
+            member.setId(1L);
+            member.setUsername("A");
+            member.setRoleType(RoleType.USER);
+
+            em.persist(member);
 //            em.persist(member);
 //            List<Member> result = em.createQuery("select m from Member as m",Member.class)
 //                            .getResultList();
@@ -51,10 +54,10 @@ public class JpaMain {
 //
 //            System.out.println("====================");
 
-              Member member= em.find(Member.class,150L);
-              member.setName("777777");
-
-            System.out.println("====================");
+//              Member member= em.find(Member.class,150L);
+//              member.setName("777777");
+//
+//            System.out.println("====================");
             tx.commit();
         } catch(Exception e){
             tx.rollback();
