@@ -4,8 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -13,26 +11,28 @@ import java.util.Date;
 @Getter  @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//@SequenceGenerator(name="member_seq_generator",sequenceName = "member_seq")
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable=false)
     private String username;
-    private Integer age;
-
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Lob
-    private String description;
+//    private Integer age;
+//
+//    @Enumerated(EnumType.STRING)
+//    private RoleType roleType;
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date createdDate;
+//
+//
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastModifiedDate;
+//
+//    @Lob
+//    private String description;
 
 }
