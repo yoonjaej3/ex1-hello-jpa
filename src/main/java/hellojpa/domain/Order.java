@@ -17,7 +17,7 @@ public class Order {
     @Column(name="member_id")
     private Long memberId;
 
-    private Member member;
+   // private Member member;
 
     private LocalDateTime orderDate;
 
