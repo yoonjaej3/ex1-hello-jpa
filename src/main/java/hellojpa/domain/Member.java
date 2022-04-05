@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -18,6 +20,9 @@ public class Member {
 
 //    @Column(name="TEAM_ID")
 //    private Long teamId;
+
+    @OneToMany(mappedBy="member")
+    List<Order> orders=new ArrayList<Order>();
 
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
