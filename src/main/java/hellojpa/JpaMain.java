@@ -22,32 +22,19 @@ public class JpaMain {
         tx.begin();
 
         try{
-//            Team team=new Team();
-//            team.setName("TeamA");
-//            em.persist(team);
-//
-//            Member member= new Member();
-//            member.setUsername("member1");
-//
-//            team.getMembers().add(member);
-//            member.setTeam(team);
-//            em.persist(member);
-//
-//            em.flush();
-//            em.clear();
-//            Member findMember=em.find(Member.class,member.getId());
-//
-//            Team findTeam=findMember.getTeam();
-//            System.out.println("findTeam=" + findTeam.getName());
+            Member member1 =new Member();
+            member1.setUsername("member1");
+            em.persist(member1);
 
-            Book book=new Book();
-            book.setName("JPA");
-            book.setAuthor("김영한");
+            em.flush();
+            em.clear();
 
-            em.persist(book);
+            Member refMember=em.getReference(Member.class,member1.getId());
+            //JPA 표준에는 강체고기화가없다. 하이버네이트 호출로 ...
             tx.commit();
         } catch(Exception e){
             tx.rollback();
+            e.printStackTrace();
         } finally{
             em.close();
         }
