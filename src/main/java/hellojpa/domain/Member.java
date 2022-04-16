@@ -21,7 +21,11 @@ public class Member {
 //    @Column(name="TEAM_ID")
 //    private Long teamId;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="TEAM_ID")
-    private Team team;
+//    @ManyToOne(fetch=FetchType.LAZY)
+//    @JoinColumn(name="TEAM_ID")
+//    private Team team;
+
+    //주소
+    @Embedded
+    private Address homeAddress;
 }

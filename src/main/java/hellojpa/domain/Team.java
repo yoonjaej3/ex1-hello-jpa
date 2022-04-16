@@ -17,6 +17,6 @@ public class Team {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "team")
-    List<Member> members=new ArrayList<Member>();
+//    @OneToMany(mappedBy = "team")
+//    List<Member> members=new ArrayList<Member>();
 }
